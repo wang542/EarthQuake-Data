@@ -45,16 +45,16 @@ public class Main extends Application {
 
 		
 		
-		RunCommandLine(quakes); // Executes command line interface
-		//RunUnitTest(quakes);
+		//RunCommandLine(quakes); // Executes command line interface
+		RunUnitTest(quakes);
 	}
 	
 	public static void RunUnitTest(ArrayList<Earthquake> testQuakes)
 	{
-		EarthquakeCollection ec = new EarthquakeCollection();
-		System.out.println("-------------------SUMMARY TEST-------------------------");
-		System.out.println(ec.toString(testQuakes));
-		System.out.println("--------------------------------------------------------");
+		//EarthquakeCollection ec = new EarthquakeCollection();
+		//System.out.println("-------------------SUMMARY TEST-------------------------");
+		//System.out.println(ec.toString(testQuakes));
+		//System.out.println("--------------------------------------------------------");
 		//System.out.println("---------------------PRINT TEST-------------------------");
 		//System.out.println(ec.printAll(testQuakes));
 		//System.out.println("--------------------------------------------------------");
@@ -73,21 +73,21 @@ public class Main extends Application {
 		//System.out.println("-------------------PRINTBY STATUS TEST-------------------------");
 		//System.out.println(ec.printAll(ec.sortByStatus(testQuakes)));
 		//System.out.println("--------------------------------------------------------");
-		System.out.println("-------------------SEARCH DATE TEST-------------------------");
-		DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
-		Date result1;
-		Date result2;
-		try 
-		{
-		    result1 = df.parse("Thu Oct 19 13:06:29 EDT 2017");
-			result2 = df.parse("Thu Oct 19 13:08:29 EDT 2017");
-			ec.searchByDate(result1, result2, testQuakes);
-		} 
-		catch (ParseException e) 
-		{
-			System.out.println("Command Error: search date EEE MMM dd kk:mm:ss z yyyy\nExample: Thu Oct 19 13:07:29 EDT 2017");
-		}
-		System.out.println("--------------------------------------------------------");
+		//System.out.println("-------------------SEARCH DATE TEST-------------------------");
+//		DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
+//		Date result1;
+//		Date result2;
+//		try 
+//		{
+//		    result1 = df.parse("Thu Oct 19 13:06:29 EDT 2017");
+//			result2 = df.parse("Thu Oct 19 13:08:29 EDT 2017");
+//			ec.searchByDate(result1, result2, testQuakes);
+//		} 
+//		catch (ParseException e) 
+//		{
+//			System.out.println("Command Error: search date EEE MMM dd kk:mm:ss z yyyy\nExample: Thu Oct 19 13:07:29 EDT 2017");
+//		}
+//		System.out.println("--------------------------------------------------------");
 	}
 	
 	public static void RunCommandLine(ArrayList<Earthquake> commandQuakes)
