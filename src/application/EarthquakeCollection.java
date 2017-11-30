@@ -1,11 +1,14 @@
 package application;
+
 import java.util.*;
-
-
 import java.lang.*;
 import java.io.*;
 
+
+
 public class EarthquakeCollection  {
+	
+	
 	ArrayList<ArrayList<String>> data;
 	
 	public EarthquakeCollection() {}
@@ -108,10 +111,8 @@ public class EarthquakeCollection  {
 				 } else if (j == i-1) {
 					 result.add(quakes.get(i));
 				 }
-				
 			 } 
 		}
-		
 		return result;
 	}
 
@@ -128,12 +129,9 @@ public class EarthquakeCollection  {
 				 } else if (j == i-1) {
 					 result.add(quakes.get(i));
 				 }
-				
 			 } 
 		}
-		
 		return result;
-		
 	}
 
 	// Sorts Earthquakes by Magnitude
@@ -330,6 +328,7 @@ public class EarthquakeCollection  {
 		for (int i = 0; i < indexArray.size(); i++)
 			System.out.println(locationQuakes.get(indexArray.get(i)));
 	}
+	
 	// searchBy place
 	public void searchbyPlace(ArrayList<Earthquake> placeQuakes, String place)
 	{
@@ -358,11 +357,12 @@ public class EarthquakeCollection  {
 		for (int i = 0; i < indexArray.size(); i++)
 			System.out.println(statusQuakes.get(indexArray.get(i)));
 	}
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EarthquakeCollection ec = new EarthquakeCollection();
 		ec.loadData("all_month.csv");
-		
 	}
 
 }
