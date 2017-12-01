@@ -60,18 +60,36 @@ public class EarthquakeDataController {
 	}
 	
 }
-public void writeNewUser() {      
-    PrintWriter fw = null;
+public void SelEventButton (ActionEvent e) {
+		PrintWriter fw = null;
 
-    try {
-        fw = new PrintWriter("users.txt");
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(tfUsername.getText());
-        bw.newLine();
-        bw.write(tfPassword.getText());
-        fw.close();
-    } catch (IOException e) {
-        e.printStackTrace();
+	    try {
+	        fw = new PrintWriter("selData.txt");
+	        BufferedWriter bw = new BufferedWriter(fw);
+	        bw.write(ReportArea.getText());
+	        bw.newLine();
+	        bw.write(ReportArea.getText());
+	        fw.close();
+	    } catch (IOException e1) {
+	        e1.printStackTrace();
 
-    }
+	    }
+		
+	}
+	public void AllEventButton (ActionEvent e) {
+		PrintWriter fw = null;
+
+	    try {
+	        fw = new PrintWriter("allData.txt");
+	        BufferedWriter bw = new BufferedWriter(fw);
+	        bw.write(ReportArea.getText());
+	        bw.newLine();
+	        bw.write(ReportArea.getText());
+	        fw.close();
+	    } catch (IOException e1) {
+	        e1.printStackTrace();
+
+	    }
+		
+	}
 }
