@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,13 +48,25 @@ public class EarthquakeDataController {
 	private EarthquakeCollection mainCollection;
 	private Main main;
 	
+	private ArrayList<Earthquake> quakes = new ArrayList<>();
+	
+	@FXML
+	public void initialize() {
+		EarthquakeCollection ec = new EarthquakeCollection();
+		ec.setData(ec.loadData("all_month.csv"));
+		quakes = ec.createQuakes();
+		ec.sortByDate(quakes);
+		System.out.println(quakes.size());
+		System.out.print("done");
+	}
+	
 	
 	public void displayDataButtonClick (ActionEvent e) {
-		main.quakes;
+	
 		
-//		if ((SearchDate1.getValue() != null) && (SearchDate2.getValue() != null)) {
-//			mainCollection.searchByDate(SearchDate1, SearchDate2);
-//		}
+		if ((SearchDate1.getValue() != null) && (SearchDate2.getValue() != null)) {
+			ReportArea.setText(mainCollection.searchByDate(SearchDate1.getValue(), SearchDate2.getValue(), quakes));
+		}
 		if (!Location.getText().isEmpty()) {
 			
 		}

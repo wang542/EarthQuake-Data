@@ -9,28 +9,28 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EarthquakeDataController">
    <children>
-      <TextField fx:id="Location" layoutX="148.0" layoutY="71.0" prefHeight="31.0" prefWidth="91.0" promptText="Latitude" />
-      <TextField fx:id="Depth" layoutX="148.0" layoutY="118.0" prefHeight="31.0" prefWidth="195.0" promptText="Enter a number" />
-      <TextField fx:id="Mag1" layoutX="149.0" layoutY="162.0" prefHeight="31.0" prefWidth="91.0" promptText="Mag 1" />
-      <TextField fx:id="MagType" layoutX="148.0" layoutY="202.0" prefHeight="31.0" prefWidth="195.0" promptText="Enter a type" />
-      <TextField fx:id="Place" layoutX="148.0" layoutY="249.0" prefHeight="31.0" prefWidth="195.0" promptText="Enter a place" />
-      <TextField fx:id="Status" layoutX="148.0" layoutY="292.0" prefHeight="31.0" prefWidth="195.0" promptText="&quot;Automatic&quot; or &quot;Reviewed&quot;" />
-      <Label layoutX="16.0" layoutY="32.0" text="Date (mm/dd/yyyy)" />
-      <Label layoutX="14.0" layoutY="76.0" text="Location" />
-      <Label layoutX="14.0" layoutY="123.0" text="Depth" />
-      <Label layoutX="13.0" layoutY="167.0" text="Magnitude" />
-      <Label layoutX="13.0" layoutY="207.0" text="Magnitude Type" />
-      <Label layoutX="15.0" layoutY="254.0" text="Place" />
-      <Label layoutX="14.0" layoutY="297.0" text="Status" />
+      <TextField fx:id="Location" layoutX="790.0" layoutY="111.0" prefHeight="31.0" prefWidth="129.0" promptText="Latitude" />
+      <TextField fx:id="Depth" layoutX="790.0" layoutY="158.0" prefHeight="31.0" prefWidth="286.0" promptText="Enter a number" />
+      <TextField fx:id="Mag1" layoutX="791.0" layoutY="202.0" prefHeight="31.0" prefWidth="129.0" promptText="Mag 1" />
+      <TextField fx:id="MagType" layoutX="790.0" layoutY="242.0" prefHeight="31.0" prefWidth="286.0" promptText="Enter a type" />
+      <TextField fx:id="Place" layoutX="790.0" layoutY="289.0" prefHeight="31.0" prefWidth="286.0" promptText="Enter a place" />
+      <TextField fx:id="Status" layoutX="790.0" layoutY="332.0" prefHeight="31.0" prefWidth="286.0" promptText="&quot;Automatic&quot; or &quot;Reviewed&quot;" />
+      <Label layoutX="658.0" layoutY="72.0" text="Date (mm/dd/yyyy)" />
+      <Label layoutX="656.0" layoutY="116.0" text="Location" />
+      <Label layoutX="656.0" layoutY="163.0" text="Depth" />
+      <Label layoutX="655.0" layoutY="207.0" text="Magnitude" />
+      <Label layoutX="655.0" layoutY="247.0" text="Magnitude Type" />
+      <Label layoutX="657.0" layoutY="294.0" text="Place" />
+      <Label layoutX="656.0" layoutY="337.0" text="Status" />
       <Button fx:id="SelEventButton" layoutX="531.0" layoutY="495.0" mnemonicParsing="false" text="Generate Report of Selected Event" />
       <Button fx:id="AllEventButton" layoutX="805.0" layoutY="495.0" mnemonicParsing="false" text="Generate Report of All Events on Map" />
       <TextField fx:id="SelEventReport" layoutX="531.0" layoutY="538.0" prefHeight="31.0" prefWidth="248.0" promptText="Give file a name" />
       <TextField fx:id="AllEventReport" layoutX="805.0" layoutY="538.0" prefHeight="31.0" prefWidth="270.0" promptText="Give file a name" />
       <TextArea fx:id="ReportArea" layoutX="7.0" layoutY="385.0" prefHeight="201.0" prefWidth="501.0" />
-      <TextField fx:id="Mag2" layoutX="252.0" layoutY="162.0" prefHeight="31.0" prefWidth="91.0" promptText="Mag 2" />
-      <Button fx:id="DisplayDataButton" layoutX="148.0" layoutY="339.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="195.0" text="Display Data" />
-      <DatePicker fx:id="SearchData1" layoutX="149.0" layoutY="27.0" prefHeight="31.0" prefWidth="91.0" />
-      <DatePicker fx:id="SearchData2" layoutX="252.0" layoutY="27.0" prefHeight="31.0" prefWidth="91.0" />
-      <TextField layoutX="252.0" layoutY="71.0" prefHeight="31.0" prefWidth="91.0" promptText="Longitude" />
+      <TextField fx:id="Mag2" layoutX="947.0" layoutY="202.0" prefHeight="31.0" prefWidth="129.0" promptText="Mag 2" />
+      <Button fx:id="DisplayDataButton" layoutX="790.0" layoutY="379.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="286.0" text="Display Data" />
+      <DatePicker fx:id="SearchData1" layoutX="790.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" />
+      <DatePicker fx:id="SearchData2" layoutX="946.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" />
+      <TextField layoutX="947.0" layoutY="111.0" prefHeight="31.0" prefWidth="129.0" promptText="Longitude" />
    </children>
 </AnchorPane>
