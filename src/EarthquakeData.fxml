@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -9,8 +8,10 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EarthquakeDataController">
    <children>
-      <TextField fx:id="Location" layoutX="790.0" layoutY="111.0" prefHeight="31.0" prefWidth="129.0" promptText="Latitude" />
-      <TextField fx:id="Depth" layoutX="790.0" layoutY="158.0" prefHeight="31.0" prefWidth="286.0" promptText="Enter a number" />
+  	  <TextField fx:id="SearchDate1" layoutX="791.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" promptText="Beginning Date" />
+  	  <TextField fx:id="SearchDate2" layoutX="947.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" promptText="Ending Date" />
+      <TextField fx:id="Lat1" layoutX="790.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lat 1" />
+      <TextField fx:id="Depth1" layoutX="790.0" layoutY="158.0" prefHeight="31.0" prefWidth="129.0" promptText="Enter a number" />
       <TextField fx:id="Mag1" layoutX="791.0" layoutY="202.0" prefHeight="31.0" prefWidth="129.0" promptText="Mag 1" />
       <TextField fx:id="MagType" layoutX="790.0" layoutY="242.0" prefHeight="31.0" prefWidth="286.0" promptText="Enter a type" />
       <TextField fx:id="Place" layoutX="790.0" layoutY="289.0" prefHeight="31.0" prefWidth="286.0" promptText="Enter a place" />
@@ -28,9 +29,12 @@
       <TextField fx:id="AllEventReport" layoutX="805.0" layoutY="538.0" prefHeight="31.0" prefWidth="270.0" promptText="Give file a name" />
       <TextArea fx:id="ReportArea" layoutX="7.0" layoutY="385.0" prefHeight="201.0" prefWidth="501.0" />
       <TextField fx:id="Mag2" layoutX="947.0" layoutY="202.0" prefHeight="31.0" prefWidth="129.0" promptText="Mag 2" />
-      <Button fx:id="DisplayDataButton" layoutX="790.0" layoutY="379.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="286.0" text="Display Data" />
-      <DatePicker fx:id="SearchData1" layoutX="790.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" />
-      <DatePicker fx:id="SearchData2" layoutX="946.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" />
-      <TextField layoutX="947.0" layoutY="111.0" prefHeight="31.0" prefWidth="129.0" promptText="Longitude" />
+      <Button fx:id="DisplayDataButton" layoutX="790.0" layoutY="379.0" mnemonicParsing="false" onAction="#displayDataButtonClick" prefHeight="31.0" prefWidth="286.0" text="Display Data" />
+      <TextField fx:id="Lon1" layoutX="947.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lon 1" />
+      
+      
+      <TextField fx:id="Lat2" layoutX="863.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lat 2" />
+      <TextField fx:id="Lon2" layoutX="1019.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lon 2" />
+      <TextField fx:id="Depth2" layoutX="947.0" layoutY="158.0" prefHeight="31.0" prefWidth="129.0" promptText="Enter a number" />
    </children>
 </AnchorPane>

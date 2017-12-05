@@ -1,6 +1,8 @@
 package application;
 
+import java.text.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,13 +21,21 @@ public class EarthquakeDataController {
 	@FXML
 	private Button AllEventButton;
 	@FXML
-	private DatePicker SearchDate1;
+	private TextField SearchDate1;
 	@FXML
-	private DatePicker SearchDate2;
+	private TextField SearchDate2;
 	@FXML
-	private TextField Location;
+	private TextField Lat1;
 	@FXML
-	private TextField Depth;
+	private TextField Lat2;
+	@FXML
+	private TextField Lon1;
+	@FXML
+	private TextField Lon2;
+	@FXML
+	private TextField Depth1;
+	@FXML
+	private TextField Depth2;
 	@FXML
 	private TextField Mag1;
 	@FXML
@@ -45,14 +55,14 @@ public class EarthquakeDataController {
 	@FXML
 	private Button DisplayDataButton;
 	
-	private EarthquakeCollection mainCollection;
+	private EarthquakeCollection ec;
 	private Main main;
 	
 	private ArrayList<Earthquake> quakes = new ArrayList<>();
 	
 	@FXML
 	public void initialize() {
-		EarthquakeCollection ec = new EarthquakeCollection();
+		ec = new EarthquakeCollection();
 		ec.setData(ec.loadData("all_month.csv"));
 		quakes = ec.createQuakes();
 		ec.sortByDate(quakes);
@@ -62,22 +72,28 @@ public class EarthquakeDataController {
 	
 	
 	public void displayDataButtonClick (ActionEvent e) {
-	
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		Date d1 = null;
+		Date d2 = null;
+		try {
+			d1 = df.parse(SearchDate1.getText());
+			d2 = df.parse(SearchDate2.getText());
+		}
+		catch (Exception eX) {
+			System.out.println("Date is wrong");
+		}
 		
-		if ((SearchDate1.getValue() != null) && (SearchDate2.getValue() != null)) {
-			ReportArea.setText(mainCollection.searchByDate(SearchDate1.getValue(), SearchDate2.getValue(), quakes));
+		if ((!SearchDate1.getText().isEmpty()) && (!SearchDate2.getText().isEmpty())) {
+			ReportArea.setText(ec.searchByDate(d1, d2, quakes));
 		}
-		if (!Location.getText().isEmpty()) {
-			
+		if ((!Lat1.getText().isEmpty()) && (!Lon1.getText().isEmpty()) && (!Lat2.getText().isEmpty()) && (!Lon2.getText().isEmpty())) {
+			ReportArea.setText(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
 		}
-		if (!Depth.getText().isEmpty()) {
-			
+		if (!Depth1.getText().isEmpty() && !Depth1.getText().isEmpty()) {
+			ReportArea.setText(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
 		}
-		if (!Mag1.getText().isEmpty()) {
-			
-		}
-		if (!Mag2.getText().isEmpty()) {
-			
+		if ((!Mag1.getText().isEmpty()) && (!Mag2.getText().isEmpty())) {
+			ReportArea.setText(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
 		}
 		if (!MagType.getText().isEmpty()) {
 			

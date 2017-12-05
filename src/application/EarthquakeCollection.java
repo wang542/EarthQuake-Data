@@ -2,6 +2,7 @@ package application;
 
 import java.util.*;
 import java.lang.*;
+import java.util.Date;
 import java.io.*;
 
 
@@ -237,7 +238,7 @@ public class EarthquakeCollection  {
 	}
 
 	// searchBy date
-	public void searchByDate(Date d1, Date d2, ArrayList<Earthquake> ec) {
+	public String searchByDate(Date d1, Date d2, ArrayList<Earthquake> ec) {
 		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
 		ArrayList<Earthquake> quakes = this.sortByDate(ec);
 		Date begin = quakes.get(0).time;
@@ -253,10 +254,7 @@ public class EarthquakeCollection  {
 				}
 			}
 		}
-		
-		for (Earthquake e : result) {
-			System.out.println(e.toString());
-		}
+		return result.toString();
 	}
 	
 	// searchBy location (lat,long)
@@ -270,10 +268,11 @@ public class EarthquakeCollection  {
 	}
 	
 	// searchBy depth
-	public void searchbyDepth(ArrayList<Earthquake> depthQuakes, double depth1, double depth2)
+	public String searchByDepth(ArrayList<Earthquake> depthQuakes, double depth1, double depth2)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
-
+		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
+		
 		for (int i = 0; i < depthQuakes.size(); i++)
 		{
 			if (depthQuakes.get(i).depth >= depth1 && depthQuakes.get(i).depth <= depth2)
@@ -281,14 +280,16 @@ public class EarthquakeCollection  {
 		}
 		
 		for (int i = 0; i < indexArray.size(); i++)
-			System.out.println(depthQuakes.get(indexArray.get(i)));
+			 result.add(depthQuakes.get(indexArray.get(i)));
+		return result.toString();
 	}
 	
 	// searchBy mag
-	public void searchbyMag(ArrayList<Earthquake> magQuakes, double mag1, double mag2)
+	public String searchByMag(ArrayList<Earthquake> magQuakes, double mag1, double mag2)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
-
+		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
+		
 		for (int i = 0; i < magQuakes.size(); i++)
 		{
 			if (magQuakes.get(i).mag >= mag1 && magQuakes.get(i).mag <= mag2)
@@ -296,14 +297,16 @@ public class EarthquakeCollection  {
 		}
 		
 		for (int i = 0; i < indexArray.size(); i++)
-			System.out.println(magQuakes.get(indexArray.get(i)));
+			result.add(magQuakes.get(indexArray.get(i)));
+		return result.toString();
 	}
 	
 	// searchBy magtype
-	public void searchbyMagType(ArrayList<Earthquake> magTypeQuakes, String magType)
+	public String searchByMagType(ArrayList<Earthquake> magTypeQuakes, String magType)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
-
+		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
+		
 		for (int i = 0; i < magTypeQuakes.size(); i++)
 		{
 			if (magTypeQuakes.get(i).magType.equals(magType))
@@ -311,14 +314,16 @@ public class EarthquakeCollection  {
 		}
 		
 		for (int i = 0; i < indexArray.size(); i++)
-			System.out.println(magTypeQuakes.get(indexArray.get(i)));
+			result.add(magTypeQuakes.get(indexArray.get(i)));
+		return result.toString();
 	}
 	
 	//search by location
-	public void searchbyLocation(ArrayList<Earthquake> locationQuakes, double lat1, double lat2, double lon1, double lon2)
+	public String searchByLocation(ArrayList<Earthquake> locationQuakes, double lat1, double lat2, double lon1, double lon2)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
-
+		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
+		
 		for (int i = 0; i < locationQuakes.size(); i++)
 		{
 			if ((locationQuakes.get(i).latitude >= lat1 && locationQuakes.get(i).latitude <= lat2)&&(locationQuakes.get(i).longitude >= lon1 && locationQuakes.get(i).longitude <= lon2))
@@ -326,13 +331,15 @@ public class EarthquakeCollection  {
 		}
 		
 		for (int i = 0; i < indexArray.size(); i++)
-			System.out.println(locationQuakes.get(indexArray.get(i)));
+			result.add(locationQuakes.get(indexArray.get(i)));
+		return result.toString();
 	}
 	
 	// searchBy place
-	public void searchbyPlace(ArrayList<Earthquake> placeQuakes, String place)
+	public String searchByPlace(ArrayList<Earthquake> placeQuakes, String place)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
+		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
 
 		for (int i = 0; i < placeQuakes.size(); i++)
 		{
@@ -341,13 +348,14 @@ public class EarthquakeCollection  {
 		}
 		
 		for (int i = 0; i < indexArray.size(); i++)
-			System.out.println(placeQuakes.get(indexArray.get(i)));
+			result.add(placeQuakes.get(indexArray.get(i)));
+		return result.toString();
 	}
 	// searchBy status
-	public void searchbyStatus(ArrayList<Earthquake> statusQuakes, String status)
-	{
+	public String searchByStatus(ArrayList<Earthquake> statusQuakes, String status) {
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
-
+		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
+		
 		for (int i = 0; i < statusQuakes.size(); i++)
 		{
 			if (statusQuakes.get(i).status.equals(status))
@@ -355,7 +363,8 @@ public class EarthquakeCollection  {
 		}
 		
 		for (int i = 0; i < indexArray.size(); i++)
-			System.out.println(statusQuakes.get(indexArray.get(i)));
+			result.add(statusQuakes.get(indexArray.get(i)));
+		return result.toString();
 	}
 	
 	
