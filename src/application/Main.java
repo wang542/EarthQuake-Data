@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+//import java.time.Date;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -48,26 +49,21 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void main(String[] args) {
+
+	//Work on tomorrow
+	static ArrayList<Earthquake> quakes = new ArrayList<>();
+	public static void main(String[] args) throws FileNotFoundException
+	{
+		
 		launch(args);
+		//System.out.println(quakes.get(0).toString());
+		//System.out.println(sorted.get(0).time);
+
+		
+		
+		//RunCommandLine(quakes); // Executes command line interface
+		RunUnitTest(quakes);
 	}
-	
-//	public static void main(String[] args) throws FileNotFoundException
-//	{
-//		EarthquakeCollection ec = new EarthquakeCollection();
-//		ec.setData(ec.loadData("all_month.csv"));
-//		ArrayList<Earthquake> quakes = ec.createQuakes();
-//
-//		ArrayList<Earthquake> sorted = ec.sortByDate(quakes);
-//		//System.out.println(quakes.get(0).toString());
-//		//System.out.println(sorted.get(0).time);
-//
-//		
-//		
-//		//RunCommandLine(quakes); // Executes command line interface
-//		RunUnitTest(quakes);
-//	}
 	
 	public static void RunUnitTest(ArrayList<Earthquake> testQuakes)
 	{
@@ -202,16 +198,16 @@ public class Main extends Application {
 						DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
 						Date result1;
 						Date result2;
-						try 
-						{
-						    result1 = df.parse(response.split(" ")[2]+" "+response.split(" ")[3]+" "+response.split(" ")[4]+" "+response.split(" ")[5]+" "+response.split(" ")[6]+" "+response.split(" ")[7]);
-							result2 = df.parse(response.split(" ")[8]+" "+response.split(" ")[9]+" "+response.split(" ")[10]+" "+response.split(" ")[11]+" "+response.split(" ")[12]+" "+response.split(" ")[13]);
-							ec.searchByDate(result1, result2, commandQuakes);
-						} 
-						catch (ParseException e) 
-						{
-							System.out.println("Command Error: search date EEE MMM dd kk:mm:ss z yyyy\nExample: Thu Oct 19 13:07:29 EDT 2017");
-						}
+//						try 
+//						{
+//						    result1 = df.parse(response.split(" ")[2]+" "+response.split(" ")[3]+" "+response.split(" ")[4]+" "+response.split(" ")[5]+" "+response.split(" ")[6]+" "+response.split(" ")[7]);
+//							result2 = df.parse(response.split(" ")[8]+" "+response.split(" ")[9]+" "+response.split(" ")[10]+" "+response.split(" ")[11]+" "+response.split(" ")[12]+" "+response.split(" ")[13]);
+//							ec.searchByDate(result1, result2, commandQuakes);
+//						} 
+//						catch (ParseException e) 
+//						{
+//							System.out.println("Command Error: search date EEE MMM dd kk:mm:ss z yyyy\nExample: Thu Oct 19 13:07:29 EDT 2017");
+//						}
 						
 					}
 				}
@@ -225,7 +221,7 @@ public class Main extends Application {
 					{
 						try
 						{
-						ec.searchbyDepth(commandQuakes,Double.parseDouble(response.split(" ")[2]), Double.parseDouble(response.split(" ")[3]));
+						ec.searchByDepth(commandQuakes,Double.parseDouble(response.split(" ")[2]), Double.parseDouble(response.split(" ")[3]));
 						}
 						catch (java.lang.NumberFormatException e) 
 						{
@@ -243,7 +239,7 @@ public class Main extends Application {
 					{
 						try
 						{
-						ec.searchbyLocation(commandQuakes, Double.parseDouble(response.split(" ")[2]), Double.parseDouble(response.split(" ")[3]), Double.parseDouble(response.split(" ")[4]), Double.parseDouble(response.split(" ")[5]));
+						ec.searchByLocation(commandQuakes, Double.parseDouble(response.split(" ")[2]), Double.parseDouble(response.split(" ")[3]), Double.parseDouble(response.split(" ")[4]), Double.parseDouble(response.split(" ")[5]));
 						}
 						catch (java.lang.NumberFormatException e) 
 						{
@@ -261,7 +257,7 @@ public class Main extends Application {
 					{
 						try
 						{
-						ec.searchbyMag(commandQuakes, Double.parseDouble(response.split(" ")[2]), Double.parseDouble(response.split(" ")[3]));
+						ec.searchByMag(commandQuakes, Double.parseDouble(response.split(" ")[2]), Double.parseDouble(response.split(" ")[3]));
 						}
 						catch (java.lang.NumberFormatException e) 
 						{
@@ -278,7 +274,7 @@ public class Main extends Application {
 					else
 					{
 						
-						ec.searchbyMagType(commandQuakes, response.split(" ")[2]);
+						ec.searchByMagType(commandQuakes, response.split(" ")[2]);
 					
 					}
 				}
@@ -290,7 +286,7 @@ public class Main extends Application {
 					}
 					else
 					{
-						ec.searchbyPlace(commandQuakes, response.split(" ")[2]);
+						ec.searchByPlace(commandQuakes, response.split(" ")[2]);
 					}
 				}
 				else if (response.split(" ")[1].equalsIgnoreCase("status") || (!response.split(" ")[2].equals("reviewed")&&!response.split(" ")[2].equals("automatic")))
@@ -301,7 +297,7 @@ public class Main extends Application {
 					}
 					else
 					{
-						ec.searchbyStatus(commandQuakes, response.split(" ")[2]);
+						ec.searchByStatus(commandQuakes, response.split(" ")[2]);
 					}
 				}
 				else
