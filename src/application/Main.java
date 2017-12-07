@@ -19,15 +19,27 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			GoogleMaps newmap= new GoogleMaps();
+			
+			newmap.setHeight(427.0);
+			newmap.setWidth(510.0);
+			newmap.setMapCenter(39.1761, -86.5131);
+//			//
+			
+//			newmap.setMarkerPosition(0, 0);
+			//newmap.setMarkerPosition(41.8781, -87.6298);
+			newmap.setMarkerPosition(40.7128, -74.0060);
+			
 			// set a title for the Window
 			primaryStage.setTitle("Earthquake Data");
 			
 			// get an FXML loader and read in the fxml code
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("EarthquakeData.fxml"));
+			loader.setLocation(Main.class.getResource("/EarthquakeData.fxml"));
 			AnchorPane mainLayout = (AnchorPane)loader.load();
 			
 			// Create the scene with the layout in the fxml code, set the scene and show it
+			mainLayout.getChildren().add(newmap);
 			Scene scene = new Scene(mainLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -37,25 +49,25 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main1(String[] args) {
+	public static void main(String[] args) {
 		launch(args);
 	}
 	
-	public static void main(String[] args) throws FileNotFoundException
-	{
-		EarthquakeCollection ec = new EarthquakeCollection();
-		ec.setData(ec.loadData("all_month.csv"));
-		ArrayList<Earthquake> quakes = ec.createQuakes();
-
-		ArrayList<Earthquake> sorted = ec.sortByDate(quakes);
-		//System.out.println(quakes.get(0).toString());
-		//System.out.println(sorted.get(0).time);
-
-		
-		
-		//RunCommandLine(quakes); // Executes command line interface
-		RunUnitTest(quakes);
-	}
+//	public static void main(String[] args) throws FileNotFoundException
+//	{
+//		EarthquakeCollection ec = new EarthquakeCollection();
+//		ec.setData(ec.loadData("all_month.csv"));
+//		ArrayList<Earthquake> quakes = ec.createQuakes();
+//
+//		ArrayList<Earthquake> sorted = ec.sortByDate(quakes);
+//		//System.out.println(quakes.get(0).toString());
+//		//System.out.println(sorted.get(0).time);
+//
+//		
+//		
+//		//RunCommandLine(quakes); // Executes command line interface
+//		RunUnitTest(quakes);
+//	}
 	
 	public static void RunUnitTest(ArrayList<Earthquake> testQuakes)
 	{
