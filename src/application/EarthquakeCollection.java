@@ -102,6 +102,7 @@ public class EarthquakeCollection  {
 	// Sorts Earthquakes by Date
 	public ArrayList<Earthquake> sortByDate(ArrayList<Earthquake> quakes) {
 		 ArrayList<Earthquake> result = new ArrayList<Earthquake>();
+		 System.out.println(quakes.size());
 		 result.add(quakes.get(0));
 		 int index = 0;
 		 for (int i = 0; i != quakes.size(); ++i) {
@@ -243,6 +244,7 @@ public class EarthquakeCollection  {
 		ArrayList<Earthquake> quakes = this.sortByDate(ec);
 		Date begin = quakes.get(0).time;
 		Date end = quakes.get(quakes.size()-1).time;
+		System.out.println(quakes.size());
 		if (d1.compareTo(begin) < 0) {
 			System.out.println("The first Date inputted is before the beginning of data.");
 		} else if (d2.compareTo(begin) < 0) {
@@ -257,15 +259,15 @@ public class EarthquakeCollection  {
 		return result.toString();
 	}
 	
-	// searchBy location (lat,long)
-	public ArrayList<Earthquake> searchByLocation(double lat, double lng, ArrayList<Earthquake> ec) {
-		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
-		for (Earthquake e : ec) {
-			
-		}
-		
-		return result;
-	}
+//	// searchBy location (lat,long)
+//	public ArrayList<Earthquake> searchByLocation(double lat, double lng, ArrayList<Earthquake> ec) {
+//		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
+//		for (Earthquake e : ec) {
+//			
+//		}
+//		
+//		return result;
+//	}
 	
 	// searchBy depth
 	public String searchByDepth(ArrayList<Earthquake> depthQuakes, double depth1, double depth2)

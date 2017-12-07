@@ -11,11 +11,18 @@
   	  <TextField fx:id="SearchDate1" layoutX="791.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" promptText="Beginning Date" />
   	  <TextField fx:id="SearchDate2" layoutX="947.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" promptText="Ending Date" />
       <TextField fx:id="Lat1" layoutX="790.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lat 1" />
+      <TextField fx:id="Lat2" layoutX="863.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lat 2" />
+      <TextField fx:id="Lon1" layoutX="947.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lon 1" />
+      <TextField fx:id="Lon2" layoutX="1019.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lon 2" />
       <TextField fx:id="Depth1" layoutX="790.0" layoutY="158.0" prefHeight="31.0" prefWidth="129.0" promptText="Enter a number" />
+      <TextField fx:id="Depth2" layoutX="947.0" layoutY="158.0" prefHeight="31.0" prefWidth="129.0" promptText="Enter a number" />
       <TextField fx:id="Mag1" layoutX="791.0" layoutY="202.0" prefHeight="31.0" prefWidth="129.0" promptText="Mag 1" />
+      <TextField fx:id="Mag2" layoutX="947.0" layoutY="202.0" prefHeight="31.0" prefWidth="129.0" promptText="Mag 2" />
       <TextField fx:id="MagType" layoutX="790.0" layoutY="242.0" prefHeight="31.0" prefWidth="286.0" promptText="Enter a type" />
       <TextField fx:id="Place" layoutX="790.0" layoutY="289.0" prefHeight="31.0" prefWidth="286.0" promptText="Enter a place" />
-      <TextField fx:id="Status" layoutX="790.0" layoutY="332.0" prefHeight="31.0" prefWidth="286.0" promptText="&quot;Automatic&quot; or &quot;Reviewed&quot;" />
+      <TextField fx:id="Status" layoutX="790.0" layoutY="332.0" prefHeight="31.0" prefWidth="286.0" promptText="&quot;automatic&quot; or &quot;reviewed&quot;" />
+      <Button fx:id="DisplayDataButton" layoutX="790.0" layoutY="379.0" mnemonicParsing="false" onAction="#displayDataButtonClick" prefHeight="31.0" prefWidth="286.0" text="Display Data" />   
+      <Button fx:id="clearButton" layoutX="791.0" layoutY="423.0" mnemonicParsing="false" onAction="#clearButtonClick" prefHeight="31.0" prefWidth="286.0" text="Clear Field" />
       <Label layoutX="658.0" layoutY="72.0" text="Date (mm/dd/yyyy)" />
       <Label layoutX="656.0" layoutY="116.0" text="Location" />
       <Label layoutX="656.0" layoutY="163.0" text="Depth" />
@@ -24,17 +31,9 @@
       <Label layoutX="657.0" layoutY="294.0" text="Place" />
       <Label layoutX="656.0" layoutY="337.0" text="Status" />
       <Button fx:id="SelEventButton" layoutX="531.0" layoutY="495.0" mnemonicParsing="false" text="Generate Report of Selected Event" />
-      <Button fx:id="AllEventButton" layoutX="805.0" layoutY="495.0" mnemonicParsing="false" text="Generate Report of All Events on Map" />
       <TextField fx:id="SelEventReport" layoutX="531.0" layoutY="538.0" prefHeight="31.0" prefWidth="248.0" promptText="Give file a name" />
+      <Button fx:id="AllEventButton" layoutX="805.0" layoutY="495.0" mnemonicParsing="false" text="Generate Report of All Events on Map" />
       <TextField fx:id="AllEventReport" layoutX="805.0" layoutY="538.0" prefHeight="31.0" prefWidth="270.0" promptText="Give file a name" />
       <TextArea fx:id="ReportArea" layoutX="7.0" layoutY="385.0" prefHeight="201.0" prefWidth="501.0" />
-      <TextField fx:id="Mag2" layoutX="947.0" layoutY="202.0" prefHeight="31.0" prefWidth="129.0" promptText="Mag 2" />
-      <Button fx:id="DisplayDataButton" layoutX="790.0" layoutY="379.0" mnemonicParsing="false" onAction="#displayDataButtonClick" prefHeight="31.0" prefWidth="286.0" text="Display Data" />
-      <TextField fx:id="Lon1" layoutX="947.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lon 1" />
-      
-      
-      <TextField fx:id="Lat2" layoutX="863.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lat 2" />
-      <TextField fx:id="Lon2" layoutX="1019.0" layoutY="111.0" prefHeight="31.0" prefWidth="57.0" promptText="Lon 2" />
-      <TextField fx:id="Depth2" layoutX="947.0" layoutY="158.0" prefHeight="31.0" prefWidth="129.0" promptText="Enter a number" />
    </children>
 </AnchorPane>
