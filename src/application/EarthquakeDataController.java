@@ -241,6 +241,7 @@ public class EarthquakeDataController {
 		
 		System.out.println(reportList.size());
 		System.out.println("Text file in"+file.getAbsolutePath());
+		String path =file.getAbsolutePath();
 		if(file.exists()) {
 			
 			System.out.println("Text file already existed in "+file.getAbsolutePath());
@@ -261,21 +262,21 @@ public class EarthquakeDataController {
 //			System.exit(1);
 		}
 
-
+		else {
 	    try (java.io.PrintWriter output = new java.io.PrintWriter(filename);
 	    		){
 	    	//
 	    	List<String> reportList = new ArrayList<String>(Arrays.asList(ReportArea.getText().split("ID")));
 	    	for (int i = 0; i < reportList.size(); i++)
 	    		output.print(Integer.toString(i)+": Earthquake happened on ID"+reportList.get(i)+"\t"+"\r\n");
-	    	
+	    	Runtime.getRuntime().exec("cmd /c "+path);
 
 //	    	output.print(ReportArea.getText());
 
 	    } catch (IOException e1) {
 	        e1.printStackTrace();
 
-	    }
+	    }}
 
 		
 	}
@@ -292,6 +293,7 @@ public class EarthquakeDataController {
 		Charset encoding = Charset.forName("UTF-8");
 //		System.out.println(filename);
 		System.out.println("Text file in"+file.getAbsolutePath());
+		String path =file.getAbsolutePath();
 		if(file.exists()) {
 			
 			System.out.println("Text file already existed in "+file.getAbsolutePath());
@@ -311,17 +313,17 @@ public class EarthquakeDataController {
 			}
 		}
 
-
+		else {
 	    try (java.io.PrintWriter output = new java.io.PrintWriter(filename);
 	    		){
 	    	List<String> reportList = new ArrayList<String>(Arrays.asList(ReportArea.getText().split("ID")));
 	    	for (int i = 0; i < reportList.size(); i++)
 	    		output.print(Integer.toString(i)+": Earthquake happened on ID"+reportList.get(i)+"\t"+"\r\n");
-
+	    	Runtime.getRuntime().exec("cmd /c "+path);
 	    } catch (IOException e1) {
 	        e1.printStackTrace();
 
-	    }
+	    }}
 //	    try(BufferedReader br = Files.newBufferedReader(filepath,encoding)){
 //	    	String line;
 //	    	while((line = br.readLine()) != null) {
