@@ -16,7 +16,7 @@ public class GoogleMaps extends Parent {
         initMap();
         initCommunication();
         getChildren().add(webView);
-        setMarkerPosition(0,0);
+        setMarkerPosition(0,0,"");
         setMapCenter(0, 0);
         switchTerrain();
 }
@@ -91,11 +91,11 @@ public class GoogleMaps extends Parent {
             System.out.print("Adsasdasdasdasdasdasdsadasdasdasdasdadasd");
         }
     }
-
-    public void setMarkerPosition(double lat, double lng) {
+   
+    public void setMarkerPosition(double lat, double lng, String string) {
         String sLat = Double.toString(lat);
         String sLng = Double.toString(lng);
-        invokeJS("setMarkerPosition(" + sLat + ", " + sLng + ")");
+        invokeJS("setMarkerPosition(" + sLat + ", " + sLng +","+ "\""+ string +"\""+ ")");
         System.out.print("setamrkerposition");
     }
 

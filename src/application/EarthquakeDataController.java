@@ -66,14 +66,18 @@ public class EarthquakeDataController {
 	@FXML
 	private Button DisplayDataButton;
 	
+	private GoogleMaps maps;
 	private EarthquakeCollection ec;
 	private Main main;
+	
 	
 	private ArrayList<Earthquake> quakes = new ArrayList<>();
 	private ArrayList<Earthquake> reportList = new ArrayList<>();
 	
+	//Getting the lists from EarthquakeCollection java page
 	@FXML
 	public void initialize() {
+		
 		ec = new EarthquakeCollection();
 		ec.setData(ec.loadData("all_month.csv"));
 		quakes = ec.createQuakes();
@@ -94,7 +98,10 @@ public class EarthquakeDataController {
 			System.out.println("Date is wrong");
 		}
 		
-		
+		//Each of these if statements consist of and if/else statement that checks if reportList is empty.
+		//If it is, then the code will use quakes as the list for each searchBy method.
+		//If it isn't empty, then the code will use reportList in replacement of quakes.
+		//This list will go through the toString method in the EarthquakeCollection java page and will then appear in ReportArea.
 		if ((!SearchDate1.getText().isEmpty()) && (!SearchDate2.getText().isEmpty())) {
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByDate(d1, d2, quakes));
@@ -208,7 +215,7 @@ public class EarthquakeDataController {
 		}
 	}
 	
-	
+	//This is to clear all text fields, the text area, and lists.
 	public void clearButtonClick (ActionEvent e) {
 		SearchDate1.setText("");
 		SearchDate2.setText("");
