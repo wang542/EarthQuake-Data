@@ -116,7 +116,7 @@ public class EarthquakeDataController {
 				}
 			}
 			else {
-				reportList.addAll(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
+				reportList.addAll(ec.searchByLocation(reportList, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
 					ReportArea.setText(reportList.get(i).toString());
 				}
@@ -132,7 +132,7 @@ public class EarthquakeDataController {
 				}
 			}
 			else {
-				reportList.addAll(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
+				reportList.addAll(ec.searchByDepth(reportList, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
 					ReportArea.setText(reportList.get(i).toString());
 				}
@@ -148,7 +148,7 @@ public class EarthquakeDataController {
 				}
 			}
 			else {
-				reportList.addAll(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
+				reportList.addAll(ec.searchByMag(reportList, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
 					ReportArea.setText(reportList.get(i).toString());
 				}
@@ -164,7 +164,7 @@ public class EarthquakeDataController {
 				}
 			}
 			else {
-				reportList.addAll(ec.searchByMagType(quakes, MagType.getText()));
+				reportList.addAll(ec.searchByMagType(reportList, MagType.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
 					ReportArea.setText(reportList.get(i).toString());
 				}
@@ -180,7 +180,7 @@ public class EarthquakeDataController {
 				}
 			}
 			else {
-				reportList.addAll(ec.searchByPlace(quakes, Place.getText()));
+				reportList.addAll(ec.searchByPlace(reportList, Place.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
 					ReportArea.setText(reportList.get(i).toString());
 				}
@@ -196,7 +196,7 @@ public class EarthquakeDataController {
 				}
 			}
 			else {
-				reportList.addAll(ec.searchByStatus(quakes, Status.getText()));
+				reportList.addAll(ec.searchByStatus(reportList, Status.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
 					ReportArea.setText(reportList.get(i).toString());
 				}
