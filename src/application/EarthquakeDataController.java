@@ -90,30 +90,41 @@ public class EarthquakeDataController {
 		Date d1 = null;
 		Date d2 = null;
 		
-		try {
-			d1 = df.parse(SearchDate1.getText());
-			d2 = df.parse(SearchDate2.getText());
-		}
-		catch (Exception eX) {
-			System.out.println("Date is wrong");
-		}
 		
+		
+		String earthquakeString = "";
 		//Each of these if statements consist of and if/else statement that checks if reportList is empty.
 		//If it is, then the code will use quakes as the list for each searchBy method.
 		//If it isn't empty, then the code will use reportList in replacement of quakes.
 		//This list will go through the toString method in the EarthquakeCollection java page and will then appear in ReportArea.
+		//If the data is taking a long time to display in ReportArea,
+		//I have a System.out.print(earthquakeString) method in each for loop inside each if/else statement in case you want to see the data.
 		if ((!SearchDate1.getText().isEmpty()) && (!SearchDate2.getText().isEmpty())) {
+			try {
+				d1 = df.parse(SearchDate1.getText());
+				d2 = df.parse(SearchDate2.getText());
+			}
+			catch (Exception eX) {
+				System.out.println("Date is wrong");
+			}
+			
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByDate(d1, d2, quakes));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByDate(d1, d2, reportList));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByDate(d1, d2, quakes));
 		}
@@ -122,14 +133,20 @@ public class EarthquakeDataController {
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByLocation(reportList, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
 		}
@@ -138,14 +155,20 @@ public class EarthquakeDataController {
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByDepth(reportList, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
 		}
@@ -154,14 +177,20 @@ public class EarthquakeDataController {
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByMag(reportList, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
 		}
@@ -170,14 +199,20 @@ public class EarthquakeDataController {
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByMagType(quakes, MagType.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByMagType(reportList, MagType.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByMagType(quakes, MagType.getText()));
 		}
@@ -186,14 +221,20 @@ public class EarthquakeDataController {
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByPlace(quakes, Place.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByPlace(reportList, Place.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByPlace(quakes, Place.getText()));
 		}
@@ -202,14 +243,20 @@ public class EarthquakeDataController {
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByStatus(quakes, Status.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByStatus(reportList, Status.getText()));
 				for (int i = 0; i < reportList.size(); i++) {
-					ReportArea.setText(reportList.get(i).toString());
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByStatus(quakes, Status.getText()));
 		}
