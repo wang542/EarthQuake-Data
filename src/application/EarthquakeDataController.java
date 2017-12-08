@@ -102,26 +102,36 @@ public class EarthquakeDataController {
 		Date d2 = null;
 		String jsString="";
 		
-		try {
-			d1 = df.parse(SearchDate1.getText());
-			d2 = df.parse(SearchDate2.getText());
-		}
-		catch (Exception eX) {
-			System.out.println("Date is wrong");
-		}
 		
+		
+		String earthquakeString = "";
 		//Each of these if statements consist of and if/else statement that checks if reportList is empty.
 		//If it is, then the code will use quakes as the list for each searchBy method.
 		//If it isn't empty, then the code will use reportList in replacement of quakes.
 		//This list will go through the toString method in the EarthquakeCollection java page and will then appear in ReportArea.
+		//If the data is taking a long time to display in ReportArea,
+		//I have a System.out.print(earthquakeString) method in each for loop inside each if/else statement in case you want to see the data.
 		if ((!SearchDate1.getText().isEmpty()) && (!SearchDate2.getText().isEmpty())) {
+			try {
+				d1 = df.parse(SearchDate1.getText());
+				d2 = df.parse(SearchDate2.getText());
+			}
+			catch (Exception eX) {
+				System.out.println("Date is wrong");
+			}
+			
 			if (reportList.isEmpty()) {
 				reportList.addAll(ec.searchByDate(d1, d2, quakes));
 				for (int i = 0; i < reportList.size(); i++) {
+
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByDate(d1, d2, reportList));
@@ -129,7 +139,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByDate(d1, d2, quakes));
 		}
@@ -141,7 +155,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByLocation(reportList, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
@@ -149,7 +167,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
 		}
@@ -161,7 +183,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByDepth(reportList, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
@@ -169,7 +195,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
 		}
@@ -181,7 +211,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByMag(reportList, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
@@ -189,7 +223,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
 		}
@@ -201,7 +239,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByMagType(reportList, MagType.getText()));
@@ -209,7 +251,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByMagType(quakes, MagType.getText()));
 		}
@@ -221,7 +267,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByPlace(reportList, Place.getText()));
@@ -231,7 +281,11 @@ public class EarthquakeDataController {
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
 					//reportList.get(i).latitude
 				
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByPlace(quakes, Place.getText()));
 		}
@@ -243,7 +297,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			else {
 				reportList.addAll(ec.searchByStatus(reportList, Status.getText()));
@@ -251,7 +309,11 @@ public class EarthquakeDataController {
 					ReportArea.setText(reportList.get(i).toString());
 					jsString=reportList.get(i).id+"<br>"+reportList.get(i).longitude+"<br>"+reportList.get(i).depth+"<br>"+reportList.get(i).place;
 					maps.setMarkerPosition(reportList.get(i).latitude,reportList.get(i).longitude,jsString);
+					//System.out.print(earthquakeString);
+					earthquakeString += reportList.get(i).toString() + "\n";	
 				}
+				ReportArea.setText(earthquakeString);
+				earthquakeString = "";
 			}
 			//ReportArea.setText(ec.searchByStatus(quakes, Status.getText()));
 		}
@@ -290,6 +352,7 @@ public class EarthquakeDataController {
 		
 		System.out.println(reportList.size());
 		System.out.println("Text file in"+file.getAbsolutePath());
+		String path =file.getAbsolutePath();
 		if(file.exists()) {
 			
 			System.out.println("Text file already existed in "+file.getAbsolutePath());
@@ -310,21 +373,21 @@ public class EarthquakeDataController {
 //			System.exit(1);
 		}
 
-
+		else {
 	    try (java.io.PrintWriter output = new java.io.PrintWriter(filename);
 	    		){
 	    	//
 	    	List<String> reportList = new ArrayList<String>(Arrays.asList(ReportArea.getText().split("ID")));
 	    	for (int i = 0; i < reportList.size(); i++)
 	    		output.print(Integer.toString(i)+": Earthquake happened on ID"+reportList.get(i)+"\t"+"\r\n");
-	    	
+	    	Runtime.getRuntime().exec("cmd /c "+path);
 
 //	    	output.print(ReportArea.getText());
 
 	    } catch (IOException e1) {
 	        e1.printStackTrace();
 
-	    }
+	    }}
 
 		
 	}
@@ -341,6 +404,7 @@ public class EarthquakeDataController {
 		Charset encoding = Charset.forName("UTF-8");
 //		System.out.println(filename);
 		System.out.println("Text file in"+file.getAbsolutePath());
+		String path =file.getAbsolutePath();
 		if(file.exists()) {
 			
 			System.out.println("Text file already existed in "+file.getAbsolutePath());
@@ -360,17 +424,17 @@ public class EarthquakeDataController {
 			}
 		}
 
-
+		else {
 	    try (java.io.PrintWriter output = new java.io.PrintWriter(filename);
 	    		){
 	    	List<String> reportList = new ArrayList<String>(Arrays.asList(ReportArea.getText().split("ID")));
 	    	for (int i = 0; i < reportList.size(); i++)
 	    		output.print(Integer.toString(i)+": Earthquake happened on ID"+reportList.get(i)+"\t"+"\r\n");
-
+	    	Runtime.getRuntime().exec("cmd /c "+path);
 	    } catch (IOException e1) {
 	        e1.printStackTrace();
 
-	    }
+	    }}
 //	    try(BufferedReader br = Files.newBufferedReader(filepath,encoding)){
 //	    	String line;
 //	    	while((line = br.readLine()) != null) {
