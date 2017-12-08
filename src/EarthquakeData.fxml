@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EarthquakeDataController">
+<AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EarthquakeDataController">
    <children>
   	  <TextField fx:id="SearchDate1" layoutX="791.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" promptText="Beginning Date" />
   	  <TextField fx:id="SearchDate2" layoutX="947.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" promptText="Ending Date" />

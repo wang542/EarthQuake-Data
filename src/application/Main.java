@@ -20,16 +20,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			GoogleMaps newmap= new GoogleMaps();
 			
-			newmap.setHeight(427.0);
-			newmap.setWidth(510.0);
-			newmap.setMapCenter(39.1761, -86.5131);
-////			//
-//			
-			newmap.setMarkerPosition(42.8781, -90.6298,"1");
-			newmap.setMarkerPosition(41.8781, -87.6298,"2");
-			newmap.setMarkerPosition(40.7128, -74.0060,"2");
 			
 			// set a title for the Window
 			primaryStage.setTitle("Earthquake Data");
@@ -40,7 +31,7 @@ public class Main extends Application {
 			AnchorPane mainLayout = (AnchorPane)loader.load();
 			
 			// Create the scene with the layout in the fxml code, set the scene and show it
-			mainLayout.getChildren().add(newmap);
+			
 			Scene scene = new Scene(mainLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();

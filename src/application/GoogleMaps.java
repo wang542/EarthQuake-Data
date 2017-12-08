@@ -95,6 +95,7 @@ public class GoogleMaps extends Parent {
     public void setMarkerPosition(double lat, double lng, String string) {
         String sLat = Double.toString(lat);
         String sLng = Double.toString(lng);
+        System.out.print(string);
         invokeJS("setMarkerPosition(" + sLat + ", " + sLng +","+ "\""+ string +"\""+ ")");
         System.out.print("setamrkerposition");
     }

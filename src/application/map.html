@@ -31,7 +31,12 @@
 		//	};
 			
 		function setMarkerPosition(latitude,long,infostring ) {
-			var contentString=infostring;
+			var contentString='<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">EarthQuake</h1>'+
+      '<p>'+
+      infostring+
+      '</p>'+
+      '</div>';
       		var infowindow = new google.maps.InfoWindow({
           	content: contentString
         });
