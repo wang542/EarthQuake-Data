@@ -55,14 +55,17 @@ public class EarthquakeDataController {
 	@FXML
 	private Button DisplayDataButton;
 	
+	private GoogleMaps maps;
 	private EarthquakeCollection ec;
 	private Main main;
+	
 	
 	private ArrayList<Earthquake> quakes = new ArrayList<>();
 	private ArrayList<String> reportList = new ArrayList<>();
 	
 	@FXML
 	public void initialize() {
+		
 		ec = new EarthquakeCollection();
 		ec.setData(ec.loadData("all_month.csv"));
 		quakes = ec.createQuakes();
@@ -71,6 +74,7 @@ public class EarthquakeDataController {
 	
 	
 	public void displayDataButtonClick (ActionEvent e) {
+		//maps.setMarkerPosition(40.7128, -87.6298);
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 		Date d1 = null;
 		Date d2 = null;

@@ -25,11 +25,11 @@ public class Main extends Application {
 			newmap.setHeight(427.0);
 			newmap.setWidth(510.0);
 			newmap.setMapCenter(39.1761, -86.5131);
-//			//
-			
-//			newmap.setMarkerPosition(0, 0);
-			//newmap.setMarkerPosition(41.8781, -87.6298);
-			newmap.setMarkerPosition(40.7128, -74.0060);
+////			//
+//			
+			newmap.setMarkerPosition(42.8781, -90.6298,"1");
+			newmap.setMarkerPosition(41.8781, -87.6298,"2");
+			newmap.setMarkerPosition(40.7128, -74.0060,"2");
 			
 			// set a title for the Window
 			primaryStage.setTitle("Earthquake Data");
