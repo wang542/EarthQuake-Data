@@ -59,7 +59,7 @@ public class EarthquakeDataController {
 	private Main main;
 	
 	private ArrayList<Earthquake> quakes = new ArrayList<>();
-	private ArrayList<String> reportList = new ArrayList<>();
+	private ArrayList<Earthquake> reportList = new ArrayList<>();
 	
 	@FXML
 	public void initialize() {
@@ -85,34 +85,115 @@ public class EarthquakeDataController {
 		
 		
 		if ((!SearchDate1.getText().isEmpty()) && (!SearchDate2.getText().isEmpty())) {
-//			if (reportList.isEmpty()) {
-//				reportList.add(ec.searchByDate(d1, d2, quakes));
-//				for (int i = 0; i < reportList.size(); i++) {
-//					ReportArea.setText(reportList.get(i));
-//				}
-//			}
-//			else {
-//				
-//			}
-			ReportArea.setText(ec.searchByDate(d1, d2, quakes));
+			if (reportList.isEmpty()) {
+				reportList.addAll(ec.searchByDate(d1, d2, quakes));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			else {
+				reportList.addAll(ec.searchByDate(d1, d2, reportList));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			//ReportArea.setText(ec.searchByDate(d1, d2, quakes));
 		}
+		
 		if ((!Lat1.getText().isEmpty()) && (!Lon1.getText().isEmpty()) && (!Lat2.getText().isEmpty()) && (!Lon2.getText().isEmpty())) {
-			ReportArea.setText(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
+			if (reportList.isEmpty()) {
+				reportList.addAll(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			else {
+				reportList.addAll(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			//ReportArea.setText(ec.searchByLocation(quakes, Double.parseDouble(Lat1.getText()), Double.parseDouble(Lat2.getText()), Double.parseDouble(Lon1.getText()), Double.parseDouble(Lon2.getText())));
 		}
+		
 		if (!Depth1.getText().isEmpty() && !Depth2.getText().isEmpty()) {
-			ReportArea.setText(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
+			if (reportList.isEmpty()) {
+				reportList.addAll(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			else {
+				reportList.addAll(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			//ReportArea.setText(ec.searchByDepth(quakes, Double.parseDouble(Depth1.getText()), Double.parseDouble(Depth2.getText())));
 		}
+		
 		if ((!Mag1.getText().isEmpty()) && (!Mag2.getText().isEmpty())) {
-			ReportArea.setText(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
+			if (reportList.isEmpty()) {
+				reportList.addAll(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			else {
+				reportList.addAll(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			//ReportArea.setText(ec.searchByMag(quakes, Double.parseDouble(Mag1.getText()), Double.parseDouble(Mag2.getText())));
 		}
+		
 		if (!MagType.getText().isEmpty()) {
-			ReportArea.setText(ec.searchByMagType(quakes, MagType.getText()));
+			if (reportList.isEmpty()) {
+				reportList.addAll(ec.searchByMagType(quakes, MagType.getText()));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			else {
+				reportList.addAll(ec.searchByMagType(quakes, MagType.getText()));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			//ReportArea.setText(ec.searchByMagType(quakes, MagType.getText()));
 		}
+		
 		if (!Place.getText().isEmpty()) {
-			ReportArea.setText(ec.searchByPlace(quakes, Place.getText()));
+			if (reportList.isEmpty()) {
+				reportList.addAll(ec.searchByPlace(quakes, Place.getText()));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			else {
+				reportList.addAll(ec.searchByPlace(quakes, Place.getText()));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			//ReportArea.setText(ec.searchByPlace(quakes, Place.getText()));
 		}
+		
 		if (!Status.getText().isEmpty()) {
-			ReportArea.setText(ec.searchByStatus(quakes, Status.getText()));
+			if (reportList.isEmpty()) {
+				reportList.addAll(ec.searchByStatus(quakes, Status.getText()));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			else {
+				reportList.addAll(ec.searchByStatus(quakes, Status.getText()));
+				for (int i = 0; i < reportList.size(); i++) {
+					ReportArea.setText(reportList.get(i).toString());
+				}
+			}
+			//ReportArea.setText(ec.searchByStatus(quakes, Status.getText()));
 		}
 	}
 	
@@ -133,6 +214,7 @@ public class EarthquakeDataController {
 		Status.setText("");
 		ReportArea.setText("");
 		quakes.clear();
+		reportList.clear();
 	}
 	
 }
