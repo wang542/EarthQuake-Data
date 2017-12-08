@@ -14,11 +14,14 @@ import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class EarthquakeDataController {
 	
@@ -155,9 +158,22 @@ public class EarthquakeDataController {
 		System.out.println("Text file in"+file.getAbsolutePath());
 		if(file.exists()) {
 			
-			System.out.println("Text file already existed in"+file.getAbsolutePath());
+			System.out.println("Text file already existed in "+file.getAbsolutePath());
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Warning.fxml"));
+			AnchorPane dialogRoot;
 			
-			System.exit(1);
+			try {
+				dialogRoot = (AnchorPane) loader.load();
+				Scene dialogScene = new Scene(dialogRoot);
+				Stage dialogStage = new Stage();
+				dialogStage.setScene(dialogScene);
+				dialogStage.show();
+				
+			}
+			catch (IOException e1) {
+				e1.printStackTrace();
+			}
+//			System.exit(1);
 		}
 
 
@@ -190,9 +206,21 @@ public class EarthquakeDataController {
 		System.out.println("Text file in"+file.getAbsolutePath());
 		if(file.exists()) {
 			
-			System.out.println("Text file already existed in"+file.getAbsolutePath());
+			System.out.println("Text file already existed in "+file.getAbsolutePath());
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Warning.fxml"));
+			AnchorPane dialogRoot;
 			
-			System.exit(1);
+			try {
+				dialogRoot = (AnchorPane) loader.load();
+				Scene dialogScene = new Scene(dialogRoot);
+				Stage dialogStage = new Stage();
+				dialogStage.setScene(dialogScene);
+				dialogStage.show();
+				
+			}
+			catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 
 
