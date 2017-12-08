@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EarthquakeDataController">
+<AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EarthquakeDataController">
    <children>
   	  <TextField fx:id="SearchDate1" layoutX="791.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" promptText="Beginning Date" />
   	  <TextField fx:id="SearchDate2" layoutX="947.0" layoutY="67.0" prefHeight="31.0" prefWidth="129.0" promptText="Ending Date" />
@@ -30,9 +30,9 @@
       <Label layoutX="655.0" layoutY="247.0" text="Magnitude Type" />
       <Label layoutX="657.0" layoutY="294.0" text="Place" />
       <Label layoutX="656.0" layoutY="337.0" text="Status" />
-      <Button fx:id="SelEventButton" layoutX="531.0" layoutY="495.0" mnemonicParsing="false" text="Generate Report of Selected Event" />
+      <Button fx:id="SelEventButton" layoutX="531.0" layoutY="495.0" mnemonicParsing="false" onAction="#SelEventButtonClick" text="Generate Report of Selected Event" />
       <TextField fx:id="SelEventReport" layoutX="531.0" layoutY="538.0" prefHeight="31.0" prefWidth="248.0" promptText="Give file a name" />
-      <Button fx:id="AllEventButton" layoutX="805.0" layoutY="495.0" mnemonicParsing="false" text="Generate Report of All Events on Map" />
+      <Button fx:id="AllEventButton" layoutX="805.0" layoutY="495.0" mnemonicParsing="false" onAction="#AllEventButtonClick" text="Generate Report of All Events on Map" />
       <TextField fx:id="AllEventReport" layoutX="805.0" layoutY="538.0" prefHeight="31.0" prefWidth="270.0" promptText="Give file a name" />
       <TextArea fx:id="ReportArea" layoutX="7.0" layoutY="385.0" prefHeight="201.0" prefWidth="501.0" />
    </children>

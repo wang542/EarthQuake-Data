@@ -1,8 +1,16 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -215,6 +223,89 @@ public class EarthquakeDataController {
 		ReportArea.setText("");
 		quakes.clear();
 		reportList.clear();
+	}
+	
+	
+	
+	
+	//need figure out how to connect it with the select point in Map
+	//before generate report need click display data button first
+	public void SelEventButtonClick (ActionEvent e) {
+		String filename =(SelEventReport.getText()+".txt");
+		java.io.File file = new java.io.File(filename);
+		Path filepath = Paths.get(filename);
+		Charset encoding = Charset.forName("UTF-8");
+		
+		System.out.println(reportList.size());
+		System.out.println("Text file in"+file.getAbsolutePath());
+		if(file.exists()) {
+			
+			System.out.println("Text file already existed in"+file.getAbsolutePath());
+			
+			System.exit(1);
+		}
+
+
+	    try (java.io.PrintWriter output = new java.io.PrintWriter(filename);
+	    		){
+	    	//
+	    	List<String> reportList = new ArrayList<String>(Arrays.asList(ReportArea.getText().split("ID")));
+	    	for (int i = 0; i < reportList.size(); i++)
+	    		output.print(Integer.toString(i)+": Earthquake happened on ID"+reportList.get(i)+"\t"+"\r\n");
+	    	
+
+//	    	output.print(ReportArea.getText());
+
+	    } catch (IOException e1) {
+	        e1.printStackTrace();
+
+	    }
+
+		
+	}
+	
+	
+	
+	//create report has all point base on setting condition
+	//direct get data from the report area, 
+	//so before generate report need click display data button first
+	public void AllEventButtonClick (ActionEvent e) {
+		String filename =(AllEventReport.getText()+".txt");
+		java.io.File file = new java.io.File(filename);
+		Path filepath = Paths.get(filename);
+		Charset encoding = Charset.forName("UTF-8");
+//		System.out.println(filename);
+		System.out.println("Text file in"+file.getAbsolutePath());
+		if(file.exists()) {
+			
+			System.out.println("Text file already existed in"+file.getAbsolutePath());
+			
+			System.exit(1);
+		}
+
+
+	    try (java.io.PrintWriter output = new java.io.PrintWriter(filename);
+	    		){
+	    	List<String> reportList = new ArrayList<String>(Arrays.asList(ReportArea.getText().split("ID")));
+	    	for (int i = 0; i < reportList.size(); i++)
+	    		output.print(Integer.toString(i)+": Earthquake happened on ID"+reportList.get(i)+"\t"+"\r\n");
+
+	    } catch (IOException e1) {
+	        e1.printStackTrace();
+
+	    }
+//	    try(BufferedReader br = Files.newBufferedReader(filepath,encoding)){
+//	    	String line;
+//	    	while((line = br.readLine()) != null) {
+//	            System.out.println(line);
+//	        }
+//	    }
+//	    catch(IOException e1) {
+//	    	e1.printStackTrace();
+//	    }
+		
+	
+		
 	}
 	
 }

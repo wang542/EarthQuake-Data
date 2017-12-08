@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 00 }
+        #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYRhsXGHKL023wAEOKNdsChIxrfNYl0Rg&callback=initMap">
+    </script>
+    <script type="text/javascript">
+        var map;
+        var markers= [];
+        var marker;
+        
+       
+		
+		
+        function get_click_position(event){
+            var location = event.latLng;
+            var lat = location.lat();
+            var lng = location.lng();
+            setMarkerPosition(lat, lng);
+            app.handle(lat, lng);
+        }
+		function setMarkerPosition(latitude,long) {
+			var contentString = "123";
+      		var infowindow = new google.maps.InfoWindow({
+          	content: contentString
+        });
+        
+			var testlatlng=new google.maps.LatLng(latitude,long);
+    			
+    			var marker=new google.maps.Marker({
+      		position:  testlatlng,
+      		map: map,
+      		animation: google.maps.Animation.DROP
+      		
+    		});
+    		markers.push(marker);
+    		
+    		marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    			
+		}	
+    //    function setMarkerPosition(lat, lng) {
+       //     var clickLatLng = new google.maps.LatLng(lat, lng);
+        //    marker.setPosition(clickLatLng);
+     //   }
+
+        function startJumping(){
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+
+        function stopJumping(){
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+
+        function setMapCenter(lat, lng) {
+            var latlng = new google.maps.LatLng(lat, lng);
+            map.setCenter(latlng);
+        }
+
+        function switchSatellite() {
+            var mapOptions = {
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            };
+            map.setOptions(mapOptions);
+            setLightMarkerIcon();
+        }
+
+        function switchRoadmap() {
+            var mapOptions = {
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map.setOptions(mapOptions);
+            setDarkMarkerIcon();
+        }
+
+        function switchHybrid() {
+            var mapOptions = {
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            };
+            map.setOptions(mapOptions);
+            setLightMarkerIcon();
+        }
+
+        function switchTerrain() {
+            var mapOptions = {
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            };
+            map.setOptions(mapOptions);
+            setDarkMarkerIcon();
+        }
+		
+		function showwindow(){
+		infowindow.open(map, marker);
+        }
+		
+		
+        function initialize() {
+            var defLatLng = new google.maps.LatLng(39.1761, -86.5131);
+            var mapOptions = {
+                center: defLatLng,
+                zoom: 3,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true,
+                panControl: true
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+            //google.maps.event.addListener(map, 'click', get_click_position);
+           
+            
+	        
+	        
+	    
+             marker = new google.maps.Marker({
+             	
+                position: defLatLng,
+                map: null,
+                icon: "../img/Pin.png"
+            });
+            
+            app.handle(0,0);
+        }
+        
+    
+        		
+
+        function setDarkMarkerIcon() {
+           marker.setIcon("../img/Pin.png");
+        }
+
+        function setLightMarkerIcon() {
+            marker.setIcon("../img/Pin.png");
+        }
+			
+    </script>
+</head>
+<body onload="initialize()">
+<div id="map_canvas" style="width:100%; height:100%"></div>
+</body>
+</html>
