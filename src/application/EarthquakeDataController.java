@@ -380,7 +380,7 @@ public class EarthquakeDataController {
 	    	List<String> reportList = new ArrayList<String>(Arrays.asList(ReportArea.getText().split("ID")));
 	    	for (int i = 0; i < reportList.size(); i++)
 	    		output.print(Integer.toString(i)+": Earthquake happened on ID"+reportList.get(i)+"\t"+"\r\n");
-	    	Runtime.getRuntime().exec("cmd /c "+path);
+	    		Runtime.getRuntime().exec("cmd /c "+path);
 
 //	    	output.print(ReportArea.getText());
 
@@ -430,7 +430,7 @@ public class EarthquakeDataController {
 	    	List<String> reportList = new ArrayList<String>(Arrays.asList(ReportArea.getText().split("ID")));
 	    	for (int i = 0; i < reportList.size(); i++)
 	    		output.print(Integer.toString(i)+": Earthquake happened on ID"+reportList.get(i)+"\t"+"\r\n");
-	    	Runtime.getRuntime().exec("cmd /c "+path);
+	    		Runtime.getRuntime().exec("cmd /c "+path);
 	    } catch (IOException e1) {
 	        e1.printStackTrace();
 
