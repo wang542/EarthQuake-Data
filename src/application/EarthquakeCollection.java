@@ -195,14 +195,12 @@ public class EarthquakeCollection  {
 					 result.add(quakes.get(i));
 			 	} else if (j == i-1) {
 					 result.add(quakes.get(i));
-				 }
-				
+				 }		
 			 } 
 		}
-		
 		return result;
-		
 	}
+	
 	
 	// 
 	public String printAll(ArrayList<Earthquake> ec) {
@@ -239,7 +237,7 @@ public class EarthquakeCollection  {
 	}
 
 	// searchBy date
-	public String searchByDate(Date d1, Date d2, ArrayList<Earthquake> ec) {
+	public ArrayList<Earthquake> searchByDate(Date d1, Date d2, ArrayList<Earthquake> ec) {
 		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
 		ArrayList<Earthquake> quakes = this.sortByDate(ec);
 		Date begin = quakes.get(0).time;
@@ -256,7 +254,7 @@ public class EarthquakeCollection  {
 				}
 			}
 		}
-		return result.toString();
+		return result;
 	}
 	
 //	// searchBy location (lat,long)
@@ -270,7 +268,7 @@ public class EarthquakeCollection  {
 //	}
 	
 	// searchBy depth
-	public String searchByDepth(ArrayList<Earthquake> depthQuakes, double depth1, double depth2)
+	public ArrayList<Earthquake> searchByDepth(ArrayList<Earthquake> depthQuakes, double depth1, double depth2)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
 		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
@@ -283,11 +281,11 @@ public class EarthquakeCollection  {
 		
 		for (int i = 0; i < indexArray.size(); i++)
 			 result.add(depthQuakes.get(indexArray.get(i)));
-		return result.toString();
+		return result;
 	}
 	
 	// searchBy mag
-	public String searchByMag(ArrayList<Earthquake> magQuakes, double mag1, double mag2)
+	public ArrayList<Earthquake> searchByMag(ArrayList<Earthquake> magQuakes, double mag1, double mag2)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
 		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
@@ -300,11 +298,11 @@ public class EarthquakeCollection  {
 		
 		for (int i = 0; i < indexArray.size(); i++)
 			result.add(magQuakes.get(indexArray.get(i)));
-		return result.toString();
+		return result;
 	}
 	
 	// searchBy magtype
-	public String searchByMagType(ArrayList<Earthquake> magTypeQuakes, String magType)
+	public ArrayList<Earthquake> searchByMagType(ArrayList<Earthquake> magTypeQuakes, String magType)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
 		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
@@ -317,11 +315,11 @@ public class EarthquakeCollection  {
 		
 		for (int i = 0; i < indexArray.size(); i++)
 			result.add(magTypeQuakes.get(indexArray.get(i)));
-		return result.toString();
+		return result;
 	}
 	
 	//search by location
-	public String searchByLocation(ArrayList<Earthquake> locationQuakes, double lat1, double lat2, double lon1, double lon2)
+	public ArrayList<Earthquake> searchByLocation(ArrayList<Earthquake> locationQuakes, double lat1, double lat2, double lon1, double lon2)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
 		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
@@ -334,11 +332,11 @@ public class EarthquakeCollection  {
 		
 		for (int i = 0; i < indexArray.size(); i++)
 			result.add(locationQuakes.get(indexArray.get(i)));
-		return result.toString();
+		return result;
 	}
 	
 	// searchBy place
-	public String searchByPlace(ArrayList<Earthquake> placeQuakes, String place)
+	public ArrayList<Earthquake> searchByPlace(ArrayList<Earthquake> placeQuakes, String place)
 	{
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
 		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
@@ -351,10 +349,10 @@ public class EarthquakeCollection  {
 		
 		for (int i = 0; i < indexArray.size(); i++)
 			result.add(placeQuakes.get(indexArray.get(i)));
-		return result.toString();
+		return result;
 	}
 	// searchBy status
-	public String searchByStatus(ArrayList<Earthquake> statusQuakes, String status) {
+	public ArrayList<Earthquake> searchByStatus(ArrayList<Earthquake> statusQuakes, String status) {
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
 		ArrayList<Earthquake> result = new ArrayList<Earthquake>();
 		
@@ -366,7 +364,7 @@ public class EarthquakeCollection  {
 		
 		for (int i = 0; i < indexArray.size(); i++)
 			result.add(statusQuakes.get(indexArray.get(i)));
-		return result.toString();
+		return result;
 	}
 	
 	
