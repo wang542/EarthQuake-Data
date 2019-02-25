@@ -4,6 +4,6 @@ Incoporated Google Maps API to display geological position of earth quake in Pha
 
 
 Team Members:
-Alex Donis
-Zhicheng Zhu
+Alex Donis,
+Zhicheng Zhu,
 Chenxu Wang
